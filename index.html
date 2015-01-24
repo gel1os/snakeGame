@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <script src="jquery-1.11.2.min.js"></script>
+    <script src="main.js"></script>
+    <link rel="stylesheet" href="style.css"/>
+    <title>Snake</title>
+</head>
+<body>
+<span class='score'>
+			Total score:
+			<span class='totalScore'>0</span>
+		</span>
+    <div class="mainWrapper">
+        <div class="wrapper">
+            <div class="popup">
+                <div class="gameOver hidden">
+                    <span class="message"></span>
+                    <span class="scoreMes"></span>
+                    <div class='btn tryAgain'>Try again?</div>
+                </div>
+                <div class="paused hidden">
+                    <div class="pauseMsg">
+                        Game paused <br>
+                        Hit space to continue...
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="description">
+            <ul>Description:
+                <li>1. Use those to move:
+                    <div class="moveBtns"></div>
+                </li>
+                <li>2. Hit here to pause:
+                    <div class="spaceBtn"></div>
+                </li>
+                <li>
+                    3. Hit button from item 2 again to resume.
+                </li>
+                <li>
+                    4. Press to repeat your amazing journey again:
+                    <div class="enterBtn"></div>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
