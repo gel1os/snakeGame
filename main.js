@@ -130,8 +130,6 @@ $(document).ready(function() {
         movement,
         direction = settings['startDirection'],
         keyPressed = false;
-        /*paused = false,
-        resumingGame = false;*/
 
     movement = setInterval(function() {
         moveSnake(direction, gridSize, movement);
