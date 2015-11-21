@@ -2,32 +2,32 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <script src="jquery-1.11.2.min.js"></script>
-    <script src="main.js"></script>
     <link rel="stylesheet" href="style.css"/>
     <title>Snake</title>
+    <script src="jquery-1.11.2.min.js"></script>
+    <script src="main.js"></script>
 </head>
 <body>
 <span class='score'>
 			Total score:
-			<span class='totalScore'>0</span>
+			<span class='total-score'>0</span>
 		</span>
     <div class="mainWrapper">
         <div class="wrapper">
             <div class="popup">
                 <div class="gameOver hidden">
                     <span class="message"></span>
-                    <span class="scoreMes"></span>
-                    <div class='btn tryAgain'>Try again?</div>
+                    <span class="score-message"></span>
+                    <div class='btn try-again'>Try again?</div>
                 </div>
                 <div class="paused hidden">
-                    <div class="pauseMsg">
+                    <div class="pause-message">
                         Game paused <br>
                         Hit space to continue...
                     </div>
                 </div>
             </div>
-
+            <div class="grid-container"></div>
         </div>
         <div class="description">
             <ul>Description:
@@ -44,7 +44,6 @@
                     4. Press to repeat your amazing journey again:
                     <div class="enterBtn"></div>
                 </li>
-
             </ul>
         </div>
     </div>

@@ -54,7 +54,7 @@ html {
     background: url("wasted.png") no-repeat 80px -60px;
 }
 
-.scoreMes {
+.score-message {
 	margin-top: 200px;
     text-align: center;
     font-size: 50px;
@@ -62,14 +62,13 @@ html {
     color:rgba(255, 255, 255, 0.87);
 }
 
-.btn.tryAgain {
-	font-size: 50px;
+.btn.try-again {
+	font-size: 41px;
 	background: rgba(0, 128, 0, 0.76);
-	margin: 0 auto;
+	margin: 60px auto 0 auto;
 	position: absolute;
 	left: 0;
 	right: 0;
-	margin-top: 60px;
 	width: 240px;
 	text-align: center;
 	border-radius: 20px;
@@ -79,7 +78,7 @@ html {
 	cursor: pointer;
 }
 
-.btn.tryAgain:hover {
+.btn.try-again:hover {
 	background: rgba(213, 6, 6, 0.74);
 }
 
@@ -91,14 +90,11 @@ html {
     bottom: 0;
     left: 0;
     right: 0;
-    background: rgb(125,126,125);
-    background: -moz-radial-gradient(center, ellipse cover, rgba(125,126,125, 0.93) 0%, rgba(14,14,14, 0.85) 100%);
-    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(125,126,125,0.93)), color-stop(100%,rgba(14,14,14, 0.85)));
-    background: -webkit-radial-gradient(center, ellipse cover, rgba(125,126,125, 0.93) 0%,rgba(14,14,14, 0.85) 100%);
-    background: -o-radial-gradient(center, ellipse cover, rgba(125,126,125, 0.93) 0%,rgba(14,14,14, 0.85) 100%);
-    background: -ms-radial-gradient(center, ellipse cover, rgba(125,126,125, 0.93) 0%,rgba(14,14,14, 0.85) 100%);
-    background: radial-gradient(ellipse at center, rgba(125, 126, 125, 0.93) 0%,rgba(14, 14, 14, 0.85) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7d7e7d', endColorstr='#0e0e0e',GradientType=1 );
+    background: #4d6066; /* Old browsers */
+    background: -moz-linear-gradient(top,  #4d6066 0%, #22353f 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  #4d6066 0%,#22353f 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  #4d6066 0%,#22353f 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4d6066', endColorstr='#22353f',GradientType=0 ); /* IE6-9 */
 }
 
 .paused {
@@ -112,16 +108,17 @@ html {
     background: rgba(69, 62, 62, 0.67)
 }
 
-.pauseMsg {
-    margin-top: 150px;
+.pause-message {
+    margin-top: 180px;
     text-align: center;
-    font-size: 50px;
+    font-size: 40px;
     display: block;
     color:rgba(255, 255, 255, 0.87);
 }
 
-.pauseMsg.countdown {
+.pause-message.countdown {
     font-size: 175px;
+    margin-top: 130px;
 }
 
 .description {
