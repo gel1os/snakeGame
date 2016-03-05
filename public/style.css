@@ -51,7 +51,7 @@ html {
     height: 180px;
     right: 0;
     left: 0;
-    background: url("wasted.png") no-repeat 80px -60px;
+    background: url("img/wasted.png") no-repeat 80px -60px;
 }
 
 .score-message {
@@ -141,20 +141,20 @@ html {
 }
 
 .moveBtns {
-    background: url('moveBtns.png');
+    background: url('img/moveBtns.png');
     height: 85px;
     width: 260px;
 }
 
 .spaceBtn {
-    background: url('spaceBtn.png') no-repeat;
+    background: url('img/spaceBtn.png') no-repeat;
     height: 42px;
     width: 278px;
     background-size: 93%;
 }
 
 .enterBtn {
-    background: url('enterBtn.png') no-repeat;
+    background: url('img/enterBtn.png') no-repeat;
     height: 85px;
     width: 85px;
     background-size: 100%;

@@ -3,7 +3,8 @@
 
 # IntelliJ project files
 .idea
-.gitignore
+.git
+firebase.json
 *.iml
 out
 gen
