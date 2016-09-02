@@ -1,5 +1,5 @@
 ;
-(function() {
+(function () {
     var settings = {
         'gridSize': 20,
         'startDirection': 'right',
@@ -74,8 +74,8 @@
     var resumingGame = false;
     var $doc = $(document);
     var direction = settings.startDirection;
+    var nextDirection = null;
     var movement;
-    var keyPressed = false;
     var gridSize;
 
     function getRandomInt(min, max) {
@@ -88,7 +88,7 @@
      * @returns {Array|*}
      */
     function createArray(elemNumber) {
-        return Array.apply(null, {length: elemNumber}).map(Number.call, Number);
+        return Array.apply(null, { length: elemNumber }).map(Number.call, Number);
     }
 
     function createRow(rowNumber) {
@@ -111,10 +111,10 @@
         var $row;
         var $cell;
 
-        arr.forEach(function(rowNumber) {
+        arr.forEach(function (rowNumber) {
             $row = createRow(rowNumber);
 
-            arr.forEach(function(cellNumber) {
+            arr.forEach(function (cellNumber) {
                 $cell = createCell(rowNumber, cellNumber);
                 $row.append($cell);
             });
@@ -245,35 +245,37 @@
         var isBorder = isReachedBorder(head, direction);
 
         if (isBorder) {
-            finishGame('You lose, sucker!!');
+            finishGame();
         } else {
             shiftSnake(nextCell);
         }
     }
 
-    function initSnakeMovement(direction) {
-        direction = directions[direction];
+    function initSnakeMovement() {
+        direction = nextDirection || direction;
+        directionData = directions[direction];
+        nextDirection = null;
 
         var $snakesHead = $('.snake-head');
-        var $nextCell = countNextCell($snakesHead, direction);
+        var $nextCell = countNextCell($snakesHead, directionData);
 
         if ($nextCell.hasClass('snake')) {
-            finishGame('You lose, sucker!!');
+            finishGame();
         } else if ($nextCell.hasClass('black')) {
             increaseSnake($snakesHead, $nextCell);
             countScore();
             addBlackCell();
         } else {
-            moveSnake($snakesHead, $nextCell, direction);
+            moveSnake($snakesHead, $nextCell, directionData);
         }
     }
 
-    function changeDirection(chosenDirection) {
-        keyPressed = true;
-        direction = chosenDirection;
-        setTimeout(function() {
-            keyPressed = false;
-        }, settings.speedOfMovement);
+    function queueMoveIntent(chosenDirection) {
+        var isOppositeDirection = direction === chosenDirection.opposite;
+        
+        if (!isOppositeDirection) {
+            nextDirection = chosenDirection.direction;
+        }
     }
 
     function pauseGame(popup) {
@@ -297,11 +299,11 @@
         $message.text('|||');
         $message.addClass('countdown');
 
-        var showCountdown = setInterval(function() {
+        var showCountdown = setInterval(function () {
             $message.text($message.text().replace('|', ''))
         }, 500);
 
-        setTimeout(function() {
+        setTimeout(function () {
             clearInterval(showCountdown);
             $popup.addClass('hidden');
             restoreInitialResumeMessage($message);
@@ -334,15 +336,8 @@
         var chosenDirection = directionKeyCodes[pressedCode];
         var isOppositeDirection;
 
-        if (keyPressed) {
-            return;
-        }
-
         if (chosenDirection) {
-            isOppositeDirection = direction === chosenDirection.opposite;
-            if (!isOppositeDirection) {
-                changeDirection(chosenDirection.direction);
-            }
+            queueMoveIntent(chosenDirection);
         } else if (event.keyCode === ENTER_CODE) {
             tryAgain();
         } else if (event.keyCode === SPACE_CODE && !gameOver && !resumingGame) {
@@ -351,8 +346,8 @@
     }
 
     function initMovementInsideInterval() {
-        movement = setInterval(function() {
-            initSnakeMovement(direction, movement);
+        movement = setInterval(function () {
+            initSnakeMovement();
             if (gameOver) {
                 clearInterval(movement);
             }
@@ -380,4 +375,4 @@
     }
 
     $(init);
-}());
+} ());
