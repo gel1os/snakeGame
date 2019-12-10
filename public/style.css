@@ -18,11 +18,7 @@ html {
 }
 
 .snake {
-    background: rgba(230, 5, 5, 0.74)
-}
-
-.snakesHead {
-    /*background: #39801f;*/
+    background: rgba(230, 5, 5, 0.74);
 }
 
 .grid-container {
