@@ -5,6 +5,9 @@
 .idea
 .git
 firebase.json
+.firebase
+.DS_Store
+.firebaserc
 *.iml
 out
 gen
